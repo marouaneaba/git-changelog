@@ -1,5 +1,31 @@
 #!/bin/bash
-# affiche_param.sh
+
+# Generate changelog file.
+#
+# This is suitable for a changelog file in markdown/text or html format.
+#
+# Options:
+#
+#
+# --since=yyyy-mm-dd
+#   This is the same as the one for git log.
+#
+# --html
+#   Generate changelog in html.
+#
+# --author
+#   Add commit author to changelog.
+#
+# Examples
+#
+# git changelog > myChangeLog.markdown
+# git changelog --html > myChangeLog.html
+# git changelog --since=2020-07-010
+# git changelog --since=2.weeks
+# git changelog --since=2.weeks --html
+# git changelog --author
+# git changelog --author --html
+
 
 initChangeLog()
 {

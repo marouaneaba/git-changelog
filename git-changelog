@@ -1,0 +1,176 @@
+#!/bin/bash
+# affiche_param.sh
+
+initChangeLog()
+{
+	#input=$1
+	since=''
+	format=':mardown'
+	
+	# split date if --since
+	if [[ $1 = --since* ]]
+	then
+		#splitter $input
+		since=$1
+		echo "$since"
+	fi
+	
+	# veirfy is markdown or html
+	if [[ $1 = --html ]] || [[ $2 = --html ]]
+	then
+		format=html
+		getLogHtml
+		echo "$format"
+	else
+		format=markdown
+		getLogMarkdown
+		echo "$format"
+	fi
+}
+
+getLogMarkdown()
+{	
+	log=$(git log --pretty=format:'- %ad %s  %n%b' --date=short $since)
+}
+
+getLogHtml()
+{	
+	log=$(git log --pretty=format:'-<li>%ad %s%n%b</li>' --date=short $since)
+	log="<br />+$log"
+}
+
+# TODO complet function
+isTitle()
+{
+echo "Title function is not implement yet ....."
+#	str=''
+#	if [[format = html]]
+#	then
+#		str= $($str| tail -c4)
+#		str = "\n" + str + "\n" + "=" * str.size
+	#else
+	#	str=str[1..4] + "<h2>" + $($str| tail -c6) + "</h2>"
+ #	fi
+}
+
+# TODO complet function
+formattingString()
+{
+echo "Title function is not implement yet ....."
+#	str=''
+#	if [[format = html]]
+#	then
+#		str= $($str| tail -c4)
+#		str = "\n" + str + "\n" + "=" * str.size
+	#else
+	#	str=str[1..4] + "<h2>" + $($str| tail -c6) + "</h2>"
+ #	fi
+}
+
+
+splitter(){
+str=$1
+delimiter=--since=
+s=$str$delimiter
+array=();
+while [[ $s ]]; do
+    array+=( "${s%%"$delimiter"*}" );
+    s=${s#*"$delimiter"};
+done;
+since="${array[1]}"
+}
+
+# TODO
+formatTitle()
+{
+	echo "not impl"
+}
+
+# Return true is string is commit body
+function updateCommitBodyWhenIsHtmlGenerator()
+{
+	if [[ $format = html ]] && ! [[ "$1" = *\<\/li\> ]] 
+	then
+		echo "<br />$@"
+	else
+		echo "$@"
+	fi
+}
+
+# TODO complet this function
+function fetchVersion()
+{
+	if [[ $format = html ]]
+	then
+		echo $@ 
+	else
+		echo $@ 
+	fi
+}
+
+
+###
+# Main body of script starts here
+###
+echo "Start of script..."
+initChangeLog $@
+if [[ $format = html ]]
+then
+	echo "See https://github.com/marouaneaba/git-changelog for inforamtion."
+	echo "This change log is auto-generated, use git-changelog."
+	echo "<ul>"
+fi
+
+#echo "$log"
+#logs=(${log//\\n/ })
+logs=();
+logs=${log%'\n'*}
+#declare -p logs
+#echo "${logs[1]}"
+
+delimiter='
+'
+
+s=$log$delimiter
+logs=();
+while [[ $s ]]; do
+    logs+=( "${s%%"$delimiter"*}" );
+    s=${s#*"$delimiter"};
+done;
+#declare -p logs
+
+tmp=''
+for line in "${logs[@]}"
+do
+	# verify is commit body
+	if [[ $line = -* ]]
+	then
+		#echo "$line -> no start whith -"
+		tmp=$(updateCommitBodyWhenIsHtmlGenerator $line)
+	elif [[ $line =~ \-( |<li>).{10}  ]]
+	then 	
+		#echo "$line -> is version line"
+		#tmp=$(fetchVersion $line)
+		echo $line
+	else 
+		tmp=$line
+	fi
+	echo $tmp
+done
+
+#str=$log
+#delimiter='\\n'
+#s=$str$delimiter
+#array=();
+#while [[ $s ]]; do
+#    array+=( "${s%%"$delimiter"*}" );
+#    s=${s#*"$delimiter"};
+#done;
+
+#declare -p array
+
+#echo "result :::: $log"
+echo "End of script..."
+
+
+

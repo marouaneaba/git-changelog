@@ -29,39 +29,75 @@
 
 initChangeLog()
 {
-	#input=$1
-	since=''
-	format=':mardown'
-	
+	since='empty'
+	format='mardown'
+	authorValue='empty'
+
 	# split date if --since
 	if [[ $1 = --since* ]]
 	then
-		#splitter $input
 		since=$1
-		echo "$since"
+	elif [[ $2 = --since* ]]
+	then
+		since=$2
+	elif [[ $3 = --since* ]]
+	then
+		since=$3
 	fi
-	
+
 	# veirfy is markdown or html
-	if [[ $1 = --html ]] || [[ $2 = --html ]]
+	if [[ $1 = --html ]] || [[ $2 = --html ]] || [[ $3 = --html ]]
 	then
 		format=html
-		getLogHtml
-		echo "$format"
+	fi
+
+	# veirfy is markdown or html
+	if [[ $1 = --author ]] || [[ $2 = --author ]] || [[ $3 = --author ]]
+	then
+		authorValue=author
+	fi
+
+	getLog $since $format $authorValue
+}
+
+getLog()
+{
+	if [[ $1 = empty ]]
+	then
+		since=''
+	fi
+
+	if [[ $2 = html ]] && [[ $3 = author ]]
+	then
+		getLogHtmlAuthor $since
+	elif [[ $2 = html ]]
+	then
+		getLogHtml $since
+	elif [[ $3 = author ]]
+	then
+		getLogMarkdownAuthor $since
 	else
-		format=markdown
-		getLogMarkdown
-		echo "$format"
+		getLogMarkdown $since
 	fi
 }
 
 getLogMarkdown()
-{	
-	log=$(git log --pretty=format:'- %ad %s  %n%b' --date=short $since)
+{
+	log=$(git log --pretty=format:'- %ad %s  %n%b' --date=short $1)
 }
 
+getLogMarkdownAuthor()
+{
+	log=$(git log --pretty=format:'- %ad %s  %n%b (%an <[%ae](mailto:%ae)>)%n' --date=short $1)
+}
+getLogHtmlAuthor()
+{
+	log=$(git log --pretty=format:'-<li>%ad %s%n%b (%an <i><a href='mailto:%ae'>%ae</a></i>)</li>%n' --date=short $1)
+	log="<br />+$log"
+}
 getLogHtml()
-{	
-	log=$(git log --pretty=format:'-<li>%ad %s%n%b</li>' --date=short $since)
+{
+	log=$(git log --pretty=format:'-<li>%ad %s%n%b</li>' --date=short $1)
 	log="<br />+$log"
 }
 
@@ -83,14 +119,6 @@ echo "Title function is not implement yet ....."
 formattingString()
 {
 echo "Title function is not implement yet ....."
-#	str=''
-#	if [[format = html]]
-#	then
-#		str= $($str| tail -c4)
-#		str = "\n" + str + "\n" + "=" * str.size
-	#else
-	#	str=str[1..4] + "<h2>" + $($str| tail -c6) + "</h2>"
- #	fi
 }
 
 
@@ -115,7 +143,7 @@ formatTitle()
 # Return true is string is commit body
 function updateCommitBodyWhenIsHtmlGenerator()
 {
-	if [[ $format = html ]] && ! [[ "$1" = *\<\/li\> ]] 
+	if [[ $format = html ]] && ! [[ "$1" = *\<\/li\> ]]
 	then
 		echo "<br />$@"
 	else
@@ -128,9 +156,9 @@ function fetchVersion()
 {
 	if [[ $format = html ]]
 	then
-		echo $@ 
+		echo $@
 	else
-		echo $@ 
+		echo $@
 	fi
 }
 
@@ -139,11 +167,17 @@ function fetchVersion()
 # Main body of script starts here
 ###
 echo "Start of script..."
+echo "See https://github.com/marouaneaba/git-changelog for inforamtion."
+echo "This change log is auto-generated, use git-changelog."
+echo "Please (checkout) to branch generate changelog."
+echo ""
+echo ""
+echo ""
+
+
 initChangeLog $@
 if [[ $format = html ]]
 then
-	echo "See https://github.com/marouaneaba/git-changelog for inforamtion."
-	echo "This change log is auto-generated, use git-changelog."
 	echo "<ul>"
 fi
 
@@ -171,32 +205,15 @@ do
 	# verify is commit body
 	if [[ $line = -* ]]
 	then
-		#echo "$line -> no start whith -"
 		tmp=$(updateCommitBodyWhenIsHtmlGenerator $line)
 	elif [[ $line =~ \-( |<li>).{10}  ]]
-	then 	
-		#echo "$line -> is version line"
+	then
 		#tmp=$(fetchVersion $line)
 		echo $line
-	else 
+	else
 		tmp=$line
 	fi
 	echo $tmp
 done
 
-#str=$log
-#delimiter='\\n'
-#s=$str$delimiter
-#array=();
-#while [[ $s ]]; do
-#    array+=( "${s%%"$delimiter"*}" );
-#    s=${s#*"$delimiter"};
-#done;
-
-#declare -p array
-
-#echo "result :::: $log"
 echo "End of script..."
-
-
-

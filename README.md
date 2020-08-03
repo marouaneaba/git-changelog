@@ -1,5 +1,9 @@
 # Changelog: 
 
+### Exemple goals:
+
+![img](https://github.com/marouaneaba/poker-bar/blob/develop/changelog_format.png)
+
 #### Qu'est-ce qu'un changelog ?
 Un changelog (journal des modifications) est un fichier qui contient une liste triée chronologiquement des changements notables pour chaque version d’un projet
 
@@ -81,3 +85,12 @@ like this:
 
 Resolves: #123
 See also: #456, #789
+
+
+
+
+### GRUNT:
+// TODO why GRUNT or Gulp
+
+### JavaScript:
+// TODO why js

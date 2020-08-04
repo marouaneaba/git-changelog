@@ -97,8 +97,20 @@ See also: #456, #789
 
 
 ### Description:
+Git-changelog est un script shell permet de créer une commande changelog. Ceci est utile pour automatiser la production de fichiers changelog. Git-changelog génère des sorties au format markdown ou html.
+
 ### Install:
-### Usage:
+Mettre ce fichier git-changelog dans ton projet.
+
 ### Contributing:
+- Fork it
+- Create your feature branch (git checkout -b my-new-feature)
+- Commit your changes (git commit -am 'Add some feature')
+- Push to the branch (git push origin my-new-feature)
+- Create new Pull Request
+
 ### License:
+MIT
+
 ### Questions and/or Comments:
+n'hésitez pas à m'envoyer vos remarques à mar.abakarim@gmail.com

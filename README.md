@@ -1,6 +1,6 @@
 # Changelog: 
 
-### Exemple goals:
+### Expected template:
 
 ![img](https://github.com/marouaneaba/git-changelog/blob/develop/changelog_format.png)
 

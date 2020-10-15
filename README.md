@@ -5,7 +5,7 @@
 ![img](https://github.com/marouaneaba/git-changelog/blob/develop/changelog_format.png)
 
 #### Qu'est-ce qu'un changelog ?
-Un changelog (journal des modifications) est un fichier qui contient une liste triée chronologiquement des changements notables pour chaque version d’un projet
+Un [changelog](https://keepachangelog.com/fr/1.0.0/) est un fichier qui contient une liste triée chronologiquement des changements notables pour chaque version d’un projet.
 
 #### Pourquoi tenir un changelog ?
 Pour permettre aux utilisateurs et contributeurs de voir précisément quels changements notables ont été faits entre chaque publication (ou version) d'un projet.

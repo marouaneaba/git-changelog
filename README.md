@@ -13,6 +13,16 @@ Pour permettre aux utilisateurs et contributeurs de voir précisément quels cha
 #### Qui a besoin d'un changelog ?
 Tout le monde. Qu'ils soient consommateurs ou développeurs, les utilisateurs de logiciels sont des êtres humains qui se soucient de connaître le contenu des logiciels qu'ils utilisent. Quand un logiciel change, ces mêmes personnes veulent savoir comment et pourquoi.
 
+#### Générate changelog commande:
+##### les commites se trouve dans la branch Realese:
+```
+git fecth --prune --all
+git log origin/develop..origin/Release-x.y.z-RC1 --oneline --format="%s"
+```
+##### les commites d'une livraison périodique se trouve dans la production (branch master), la différence entre deux tags master:
+```
+git log $(git describe --tags --abbrev=0 $(git describe --tags --abbrev=0)^)..$(git describe --tags --abbrev=0) --oneline --format="%s"
+```
 
 # Comment écrire un bon message de commit:
 Un bon message de commit doit permettre de savoir ce qui a changé et pourquoi. Le comment, c’est à dire la manière d’effectuer ces changements, n’a pas à être expliqué. La lecture du code et la mise en évidence des changements via un diff est explicite en soi.

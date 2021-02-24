@@ -1,5 +1,9 @@
 # Changelog: 
 
+L'objectif de ce repositories c'est construire une command git génére du changelog 'git changelog', et encore:
+- Exposer la template du configuration git complete.
+- Script pour consulter le contenu de la derniére release 
+
 ### Expected template:
 
 ![img](https://github.com/marouaneaba/git-changelog/blob/develop/changelog_format.png)

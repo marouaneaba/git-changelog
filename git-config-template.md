@@ -1,7 +1,3 @@
--> git config --global -l // pour visualiser la config global, remplacer global par local pour local ....
--> pour git la config local prioritaire de config global, et la config global prioritaire de al config system
----------------------------------------------------------------------------------------------------------------
-
 [user] // user utilisaer dans les description de commit
   email = myemail@mail.com
   name = marouane abakarim

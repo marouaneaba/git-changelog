@@ -55,7 +55,6 @@ The `footer` is optional. The [Commit Message Footer](#commit-footer) format des
 
 Any line of the commit message cannot be longer than 100 characters.
 
-
 #### <a name="commit-header"></a>Commit Message Header
 
 ```
@@ -159,7 +158,7 @@ On a la possibilité de définir à la configuration une template sera utiliser 
 $ git config --global commit.template ~/.gitmessage.txt
 $ git commit
 ```
-
+[Image template message commit](https://github.com/marouaneaba/git-changelog/blob/develop/template_message_commit.jpg)
 
 ### GRUNT:
 // TODO why GRUNT or Gulp

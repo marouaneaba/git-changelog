@@ -152,7 +152,13 @@ like this:
 Resolves: #123
 See also: #456, #789
 
+### commit.template
+On a la possibilité de définir à la configuration une template sera utiliser comme message du commit, on peut régler ceci sur le chemin d’un fichier de notre système, Git utilisera ce fichier comme message par défaut quand on valide. L’intérêt de créer un modèle de message de validation est que nous pouvons l’utiliser pour se rappeler (ou rappeler aux autres) du format et du style corrects pour créer un message de validation.
 
+```
+$ git config --global commit.template ~/.gitmessage.txt
+$ git commit
+```
 
 
 ### GRUNT:

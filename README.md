@@ -118,7 +118,9 @@ On utilise l’impératif présent : add, change, update, remove et non pas chan
 On explique ici la raison du changement et en quoi c’est nouvelle manière est différente de l’état précédent. Le comment est visible directement dans le code. 
 
 ### The Footer:
-Le pied de page est également facultatif et principalement utilisé lorsque vous utilisez un outil (JIRA) de suivi des problèmes pour référencer l'ID du problème, on peut mettre le numéro de suivie du sujet.
+Le pied de page est également facultatif et principalement utilisé lorsque vous utilisez un outil (JIRA) de suivi des problèmes pour référencer l'ID du problème, on peut mettre le numéro de suivie du sujet, les PRs relatif ou sera terminer à la fin de cette commit.
+
+The footer can contain information about breaking changes and is also the place to reference GitHub issues, Jira tickets, and other PRs that this commit closes or is related to.
 
 ### Example Commit Message:
 

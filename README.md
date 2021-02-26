@@ -151,7 +151,7 @@ like this:
 Resolves: #123
 See also: #456, #789
 
-### commit.template
+### commit.template:
 On a la possibilité de définir à la configuration une template sera utiliser comme message du commit, on peut régler ceci sur le chemin d’un fichier de notre système, Git utilisera ce fichier comme message par défaut quand on valide. L’intérêt de créer un modèle de message de validation est que nous pouvons l’utiliser pour se rappeler (ou rappeler aux autres) du format et du style corrects pour créer un message de validation.
 
 ```
@@ -161,7 +161,7 @@ $ git commit
 [Image template message commit](https://github.com/marouaneaba/git-changelog/blob/develop/template_message_commit.jpg)
 
 
-### PullRequest_template
+### PullRequest_template:
 Ajouter une template automatique dans le body du pull request.
 [about-issue-and-pull-request-templates](https://docs.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates)
 

@@ -160,6 +160,11 @@ $ git commit
 ```
 [Image template message commit](https://github.com/marouaneaba/git-changelog/blob/develop/template_message_commit.jpg)
 
+
+### PullRequest_template
+Ajouter une template automatique dans le body du pull request.
+[about-issue-and-pull-request-templates](https://docs.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates)
+
 ### GRUNT:
 // TODO why GRUNT or Gulp
 

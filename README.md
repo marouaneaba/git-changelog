@@ -185,6 +185,11 @@ Mettre ce fichier git-changelog dans ton projet.
 - Push to the branch (git push origin my-new-feature)
 - Create new Pull Request
 
+### Préférences cli:
+- https://www.iterm2.com/
+
+- https://github.com/robbyrussell/oh-my-zsh
+
 ### License:
 MIT
 

@@ -190,6 +190,12 @@ Mettre ce fichier git-changelog dans ton projet.
 
 - https://github.com/robbyrussell/oh-my-zsh
 
+- https://github.com/romkatv/powerlevel10k
+
+- https://dev.to/abdfnx/oh-my-zsh-powerlevel10k-cool-terminal-1no0?_sm_au_=iVV2kW3fvvWRPPtNVWsfvK70kM0Mc
+
+- https://medium.com/@satriajanaka09/setup-zsh-oh-my-zsh-powerlevel10k-on-ubuntu-20-04-c4a4052508fd
+
 ### License:
 MIT
 

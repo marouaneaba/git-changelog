@@ -1,1 +1,2 @@
 fetch all branchs: for b in `git branch -r | grep -v -- '->'`; do git branch --track ${b##origin/} $b; done
+alias.lgg=log --oneline --graph --decorate --all --pretty='%C(Yellow)%h -%C(magenta)%d%Creset  (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s'
